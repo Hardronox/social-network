@@ -15,18 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
 
 Route::group(['middleware'=>'auth'], function()
 {
-    Route::get('/profile/{slug}', 'ProfilesController@index');
-
-
-
-
+	Route::get('/profile/{slug}', 'ProfilesController@index');
 
 
 
@@ -34,3 +28,8 @@ Route::group(['middleware'=>'auth'], function()
 
 
 });
+
+
+
+
+Auth::routes();
