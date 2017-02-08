@@ -15,12 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function(){
+	return Auth::user()->hello();
+});
 
 
 Route::group(['middleware'=>'auth'], function()
 {
-	Route::get('/profile/{slug}', 'ProfilesController@index');
+	Route::get('/profile/{slug}', 'ProfilesController@overview');
+
+	Route::resource('/profile', 'ProfilesController', ['parameters' => [
+		'profile' => 'slug'
+	]]);
 
 
 
