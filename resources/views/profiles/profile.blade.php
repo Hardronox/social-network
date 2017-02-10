@@ -10,6 +10,12 @@
                     <span id="profile_info" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top"
                           title="Test account has been created for you! You can edit your personal information and choose new password. After that, you can login via social and this new account!"></span>
                 @endif
+
+                <div class="panel panel-default" id="app">
+                    <div class="panel-body">
+                        <friend></friend>
+                    </div>
+                </div>
                 <table class="table table-striped table-hover profile" >
                     <tr>
                         <th>Avatar</th>
