@@ -11184,8 +11184,10 @@ module.exports = g;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Friend_vue__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Friend_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Friend_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Friend_vue__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -11193,7 +11195,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(31);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -11205,7 +11207,7 @@ __webpack_require__(31);
 
 var app = new Vue({
   el: '#app',
-  components: { friend: __WEBPACK_IMPORTED_MODULE_0__components_Friend_vue___default.a },
+  components: { Friend: __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue___default.a },
   data: {
     kek: 'eheheheh'
   }
@@ -12072,10 +12074,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     mounted: function mounted() {
-        console.log('Component kek mounted.');
+        var _this = this;
+
+        axios.get('/check_relationship_status/' + this.profile_user_id).then(function (response) {
+            console.log(response);
+            _this.status = response.data.status;
+            _this.loading = false;
+        });
+    },
+
+    props: ['profile_user_id'],
+    data: function data() {
+        return {
+            status: "",
+            loading: true
+        };
+    },
+
+    methods: {
+        addFriend: function addFriend() {
+            var _this2 = this;
+
+            this.loading = true;
+            axios.get('/add_friend/' + this.profile_user_id).then(function (response) {
+                console.log(response);
+                if (response.data == 1) _this2.status = 'waiting';
+                _this2.loading = false;
+            });
+        },
+        acceptFriend: function acceptFriend() {
+            var _this3 = this;
+
+            this.loading = true;
+            axios.get('/accept_friend/' + this.profile_user_id).then(function (response) {
+                console.log(response);
+                if (response.data == 1) _this3.status = 'friends';
+                _this3.loading = false;
+            });
+        }
     }
 };
 
@@ -31698,14 +31743,28 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_vm._v("\n        Tell me why i feel\n    ")])])
-}]}
+  return _c('div', [(_vm.loading) ? _c('p', {
+    staticClass: "text-center"
+  }, [_vm._v("\n        Таби пизда!\n    ")]) : _vm._e(), _vm._v(" "), (_vm.status == 0) ? _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": function($event) {
+        _vm.addFriend()
+      }
+    }
+  }, [_vm._v("Add friend")]) : _vm._e(), _vm._v(" "), (_vm.status == 'pending') ? _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": function($event) {
+        _vm.acceptFriend()
+      }
+    }
+  }, [_vm._v("Accept friendship")]) : _vm._e(), _vm._v(" "), (_vm.status == 'waiting') ? _c('span', {
+    staticClass: "text-success"
+  }, [_vm._v("Waiting for response")]) : _vm._e(), _vm._v(" "), (_vm.status == 'friends') ? _c('span', {
+    staticClass: "text-success"
+  }, [_vm._v("Friends")]) : _vm._e()])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function(){
-	return Auth::user()->hello();
-});
+
 
 Route::get('/add', function(){
 	return App\User::first()->addFriend(2);
@@ -31,6 +29,7 @@ Route::get('/friends', function(){
 	return App\User::find(1)->friends();
 });
 
+
 Route::group(['middleware'=>'auth'], function()
 {
 	Route::get('/profile/{slug}', 'ProfilesController@overview');
@@ -39,6 +38,11 @@ Route::group(['middleware'=>'auth'], function()
 		'profile' => 'slug'
 	]]);
 
+	Route::get('/check_relationship_status/{id}', 'FriendshipController@check');
+
+	Route::get('/add_friend/{id}', 'FriendshipController@addFriend');
+
+	Route::get('/accept_friend/{id}', 'FriendshipController@acceptFriend');
 
 
 

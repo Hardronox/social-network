@@ -11,11 +11,13 @@
                           title="Test account has been created for you! You can edit your personal information and choose new password. After that, you can login via social and this new account!"></span>
                 @endif
 
-                <div class="panel panel-default" id="app">
-                    <div class="panel-body">
-                        <friend></friend>
+                @if(Auth::id() !== $user->id)
+                    <div class="panel panel-default" id="app">
+                        <div class="panel-body">
+                            <friend :profile_user_id="{{$user->id}}"></friend>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <table class="table table-striped table-hover profile" >
                     <tr>
                         <th>Avatar</th>
