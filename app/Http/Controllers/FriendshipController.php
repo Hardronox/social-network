@@ -14,8 +14,6 @@ class FriendshipController extends Controller
 			return [ "status" => "friends" ];
 		}
 
-		var_dump('<pre>', Auth::user()->is_friends_with($id), '</pre>');
-		exit;
 		if(Auth::user()->has_pending_friend_request_from($id))
 		{
 			return [ "status" => "pending" ];

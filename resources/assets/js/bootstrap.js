@@ -18,7 +18,7 @@ require('bootstrap-sass');
  */
 
 window.Vue = require('vue');
-
+window.Noty = require('noty');
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -37,9 +37,9 @@ window.axios.defaults.headers.common = {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from "laravel-echo"
+ import Echo from "laravel-echo"
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+ window.Echo = new Echo({
+     broadcaster: 'pusher',
+     key: 'your-pusher-key'
+ });
