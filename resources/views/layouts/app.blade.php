@@ -41,13 +41,6 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    @if (!Auth::guest())
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{url('/profile',['slug'=>Auth::user()->slug])}}">Profile</a></li>
-                        </ul>
-                    @endif
-
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -80,6 +73,18 @@
                 </div>
             </div>
         </nav>
+
+        <div class="sidebar" >
+            <ul>
+                <li><a href="">Моя страница</a></li>
+                <li><a href="">Новости</a></li>
+                <li><a href="">Сообщения</a></li>
+                <li><a href="">Друзья</a></li>
+                <li><a href="">Группы</a></li>
+                <li><a href="">Аудиозаписи</a></li>
+                <li><a href="">Видеозаписи</a></li>
+            </ul>
+        </div>
 
         @yield('content')
     </div>
