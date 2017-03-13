@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('pageTitle')</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -35,8 +35,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/feed') }}">
+                        NetWork
                     </a>
                 </div>
 
@@ -74,17 +74,9 @@
             </div>
         </nav>
 
-        <div class="sidebar" >
-            <ul>
-                <li><a href="">Моя страница</a></li>
-                <li><a href="">Новости</a></li>
-                <li><a href="">Сообщения</a></li>
-                <li><a href="">Друзья</a></li>
-                <li><a href="">Группы</a></li>
-                <li><a href="">Аудиозаписи</a></li>
-                <li><a href="">Видеозаписи</a></li>
-            </ul>
-        </div>
+        @if( Route::getFacadeRoot()->current()->uri() !== 'register' && Route::getFacadeRoot()->current()->uri() !=='login' )
+            @include('layouts.sidebar')
+        @endif
 
         @yield('content')
     </div>

@@ -5,6 +5,10 @@
 
 Route::group(['middleware'=>'auth'], function()
 {
+	Route::get('/', function(){
+		return redirect('/feed');
+	});
+
 	Route::get('/profile/{slug}', 'ProfilesController@overview');
 
 	Route::resource('/profile', 'ProfilesController', ['parameters' => [
@@ -18,6 +22,16 @@ Route::group(['middleware'=>'auth'], function()
 	Route::get('/accept_friend/{id}', 'FriendshipController@acceptFriend');
 
 	Route::get('/feed', 'FeedController@feed');
+
+	Route::get('/messages', 'FeedController@feed');
+
+	Route::get('/friends', 'FeedController@feed');
+
+	Route::get('/groups', 'FeedController@feed');
+
+	Route::get('/audios', 'FeedController@feed');
+
+	Route::get('/videos', 'FeedController@feed');
 
 
 
@@ -34,9 +48,9 @@ Route::group(['middleware'=>'auth'], function()
 		return App\User::find(2)->acceptFriend(1);
 	});
 
-	Route::get('/friends', function(){
-		return App\User::find(1)->friends();
-	});
+//	Route::get('/friends', function(){
+//		return App\User::find(1)->friends();
+//	});
 });
 
 

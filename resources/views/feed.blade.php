@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Feed')
 
 @section('content')
     <div class="feed-list">

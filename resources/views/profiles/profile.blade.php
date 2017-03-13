@@ -5,7 +5,7 @@
 @section('content')
     <div class="container" >
         <div class="content" >
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6">
                 @if ($user->password=='new users password')
                     <span id="profile_info" class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top"
                           title="Test account has been created for you! You can edit your personal information and choose new password. After that, you can login via social and this new account!"></span>
@@ -40,13 +40,13 @@
                     <tr>
                         <th>FirstName</th>
                         <td>
-                            {{$user->profile->firstname ? $user->profile->firstname : 'No information'}}
+                            {{$user->profile->firstname ?? 'No information'}}
                         </td>
                     </tr>
                     <tr>
                         <th>LastName</th>
                         <td>
-                            {{$user->profile->lastname ? $user->profile->lastname : 'No information'}}
+                            {{$user->profile->lastname ?? 'No information'}}
                         </td>
                     </tr>
                     <tr>
