@@ -79,6 +79,8 @@
         @endif
 
         @yield('content')
+
+        <Notification :id="{{Auth::id()}}"></Notification>
     </div>
 
     <!-- Scripts -->

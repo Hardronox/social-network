@@ -22,7 +22,7 @@
                     <tr>
                         <th>Avatar</th>
                         <td>
-                            <img src="{{Storage::url("public/images/avatars/$user->avatar")}}" alt="" width="50px" height="50px">
+                            <img src="{{Storage::url("$user->avatar")}}" alt="" width="50px" height="50px">
                         </td>
                     </tr>
                     <tr>

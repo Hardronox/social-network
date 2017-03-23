@@ -73,24 +73,7 @@ strong {
 dfn {
   font-style: italic;
 }
-.sidebar{
-    height:300px;
-    width: 10%;
-    border: 1px solid red;
-    float:left;
-    margin-right:2%;
-    margin-left:15%;
-}
-.sidebar>ul{
-    list-style: none;
-}
-.feed-list{
-    padding: 15px;
-    border: 1px solid lightgray;
-    width:40%;
-    float:left;
-    background-color: white;
-}
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;

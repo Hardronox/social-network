@@ -15,9 +15,11 @@ import './bootstrap';
 
 import Friend from './components/Friend.vue';
 
+import Notification from './components/Notification.vue';
+
 const app = new Vue({
     el: '#app',
-	components: { Friend },
+	components: { Friend, Notification },
 	data:{
 		kek:'eheheheh'
 	}
