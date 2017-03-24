@@ -80,7 +80,9 @@
 
         @yield('content')
 
-        <Notification :id="{{Auth::id()}}"></Notification>
+        @if (!Auth::guest())
+            <Notification :id="{{Auth::id()}}"></Notification>
+        @endif
     </div>
 
     <!-- Scripts -->

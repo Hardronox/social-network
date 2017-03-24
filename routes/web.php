@@ -12,7 +12,8 @@ Route::group(['middleware'=>'auth'], function()
 	Route::get('/profile/{slug}', 'ProfilesController@overview');
 
 	Route::resource('/profile', 'ProfilesController', ['parameters' => [
-		'profile' => 'slug'
+		'profile' => 'slug',
+		'name'=>'profile'
 	]]);
 
 	Route::get('/check_relationship_status/{id}', 'FriendshipController@check');

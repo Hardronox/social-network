@@ -52,8 +52,8 @@
                     <tr>
                         <th>Actions</th>
                         <td>
-                            <button class="btn btn-warning edit" >Edit Profile</button>
-                            <a id="delete" class="btn btn-danger" href="{{ url("/profile/delete")}}" >Delete Account</a>
+                            <button class="btn info edit" >Edit Profile</button>
+                            <a id="delete" class="btn danger" href="{{ url("/profile/delete")}}" >Delete Account</a>
                         </td>
                     </tr>
                 </table>

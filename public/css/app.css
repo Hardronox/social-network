@@ -3665,7 +3665,52 @@ select[multiple].input-lg,
   font-size: 18px;
   line-height: 1.3333333;
 }
-
+.sidebar{
+     height:300px;
+     width: 10%;
+     border: 1px solid red;
+     float:left;
+     margin-right:2%;
+     margin-left:15%;
+}
+.sidebar>ul{
+     list-style: none;
+}
+.feed-list{
+     padding: 15px;
+     border: 1px solid lightgray;
+     width:40%;
+     float:left;
+     background-color: white;
+}
+.primary{
+    background-color: #00d1b2;
+    border-color: transparent;
+    color: #fff;
+}
+.info{
+    background-color: #3273dc;
+    border-color: transparent;
+    color: #fff;
+}
+.success{
+    background-color: #23d160;
+    border-color: transparent;
+    color: #fff;
+}
+.warning{
+    background-color: #ffdb4a;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
+.warning:hover{
+    color: white;
+}
+.danger{
+    background-color: #ff3860;
+    border-color: transparent;
+    color: #fff;
+}
 .has-feedback {
   position: relative;
 }

@@ -48,7 +48,7 @@
                 @endif
                 {!! Form::token() !!}
 
-                {!! Form::submit('Edit', array('class'=>'btn btn-success pull-right')) !!}
+                {!! Form::submit('Edit', array('class'=>'btn success pull-right')) !!}
                 {!! Form::close() !!}
                 <div class="modal_height"></div>
             </div>

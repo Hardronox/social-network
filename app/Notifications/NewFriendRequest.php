@@ -43,7 +43,7 @@ class NewFriendRequest extends Notification
     {
         return (new MailMessage)
                     ->line('You received a new friend request from'. $this->user->username)
-                    ->action('View Profile', route('profile',['slug'=>$this->user->slug]))
+                    ->action('View Profile', url('/profile',['slug'=>$this->user->slug]))
                     ->line('Thank you for using our application!');
     }
 

@@ -41,10 +41,10 @@ import Echo from "laravel-echo"
 
 window.Echo = new Echo({
  broadcaster: 'pusher',
- key: 'your-pusher-key'
+ key: '9e4a41ebedd598aa4954'
 });
 
 Pusher.log=function(message){
 
-	window.console.log( message );
+	console.log( message );
 };
