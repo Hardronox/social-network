@@ -42,7 +42,9 @@
                                 text: 'Friend request sent.'
                             });
                             this.loading=false;
-                        })
+                            document.getElementById('noty_audio').play();
+
+                })
             },
             acceptFriend(){
                 this.loading=true;

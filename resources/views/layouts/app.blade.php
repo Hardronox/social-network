@@ -82,6 +82,12 @@
 
         @if (!Auth::guest())
             <Notification :id="{{Auth::id()}}"></Notification>
+
+            <audio id="noty_audio">
+                <source src="{{asset('audio/notify.mp3')}}">
+                <source src="{{asset('audio/notify.ogg')}}">
+                <source src="{{asset('audio/notify.wav')}}">
+            </audio>
         @endif
     </div>
 

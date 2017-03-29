@@ -12163,6 +12163,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     text: 'Friend request sent.'
                 });
                 _this2.loading = false;
+                document.getElementById('noty_audio').play();
             });
         },
         acceptFriend: function acceptFriend() {
@@ -12206,8 +12207,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         listen: function listen() {
 
             Echo.private('App.User.' + this.id).notification(function (notification) {
-                alert('new Notification');
-                console.log(notification);
+
+                noty({
+                    type: 'success',
+                    layout: 'bottomLeft',
+                    text: notification.name + ' ' + notification.message
+                });
+
+                document.getElementById('noty_audio').play();
             });
         }
     }
