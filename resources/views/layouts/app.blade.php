@@ -38,13 +38,20 @@
                     <a class="navbar-brand" href="{{ url('/feed') }}">
                         NetWork
                     </a>
+
                 </div>
 
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <unread></unread>
+                    </ul>
+                </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
@@ -68,6 +75,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                         @endif
                     </ul>
                 </div>

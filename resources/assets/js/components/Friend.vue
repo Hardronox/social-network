@@ -42,7 +42,7 @@
                                 text: 'Friend request sent.'
                             });
                             this.loading=false;
-                            document.getElementById('noty_audio').play();
+                            document.getElementById("noty_audio").play();
 
                 })
             },
@@ -56,7 +56,7 @@
                     noty({
                             type: 'success',
                             layout:'bottomLeft',
-                            text: 'You\'re friends now!.'
+                            text: 'You\'re friends now!'
                          });
                     this.loading=false;
                 })

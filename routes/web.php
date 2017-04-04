@@ -1,8 +1,7 @@
 <?php
 
 
-
-
+use Illuminate\Support\Facades\Auth;
 Route::group(['middleware'=>'auth'], function()
 {
 	Route::get('/', function(){
@@ -35,7 +34,10 @@ Route::group(['middleware'=>'auth'], function()
 	Route::get('/videos', 'FeedController@feed');
 
 
-
+	Route::get('/notifications', [
+		'uses' => 'HomeController@notifications',
+		'as'=>'notifications'
+	]);
 
 
 
@@ -49,6 +51,9 @@ Route::group(['middleware'=>'auth'], function()
 		return App\User::find(2)->acceptFriend(1);
 	});
 
+	Route::get('/get_unread', function(){
+		return Auth::user()->unreadNotifications;
+	});
 //	Route::get('/friends', function(){
 //		return App\User::find(1)->friends();
 //	});

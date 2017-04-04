@@ -42,7 +42,7 @@ class NewFriendRequest extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('You received a new friend request from'. $this->user->username)
+                    ->line('You received a new friend request from'. $this->user->name)
                     ->action('View Profile', url('/profile',['slug'=>$this->user->slug]))
                     ->line('Thank you for using our application!');
     }
@@ -56,7 +56,7 @@ class NewFriendRequest extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'name'=>$this->user->username,
+            'name'=>$this->user->name,
 			'message'=>' sent u a friend request!'
         ];
     }

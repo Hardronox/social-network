@@ -21,7 +21,8 @@
                         text: notification.name + ' ' + notification.message
                     });
 
-                    document.getElementById('noty_audio').play();
+                    this.$store.commit('addNot',notification);
+                    document.getElementById("noty_audio").play();
                 });
 
             }
