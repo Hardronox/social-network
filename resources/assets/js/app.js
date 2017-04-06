@@ -15,14 +15,16 @@ import './bootstrap';
 
 import Friend from './components/Friend.vue';
 
+import Post from './components/Post.vue';
+
 import Notification from './components/Notification.vue';
 
-import unread from './components/UnreadNots.vue';
+import Unread from './components/UnreadNots.vue';
 
 import {store} from './store.js';
 
 const app = new Vue({
     el: '#app',
-	components: { Friend, Notification, unread },
+	components: { Friend, Notification, Unread, Post },
 	store
 });

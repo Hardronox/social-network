@@ -11240,11 +11240,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Friend_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Notification_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Notification_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Notification_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_UnreadNots_vue__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_UnreadNots_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_UnreadNots_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store_js__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Post_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Post_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Post_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Notification_vue__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Notification_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Notification_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_UnreadNots_vue__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_UnreadNots_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_UnreadNots_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store_js__ = __webpack_require__(34);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -11268,10 +11270,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
 var app = new Vue({
   el: '#app',
-  components: { Friend: __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue___default.a, Notification: __WEBPACK_IMPORTED_MODULE_2__components_Notification_vue___default.a, unread: __WEBPACK_IMPORTED_MODULE_3__components_UnreadNots_vue___default.a },
-  store: __WEBPACK_IMPORTED_MODULE_4__store_js__["a" /* store */]
+  components: { Friend: __WEBPACK_IMPORTED_MODULE_1__components_Friend_vue___default.a, Notification: __WEBPACK_IMPORTED_MODULE_3__components_Notification_vue___default.a, Unread: __WEBPACK_IMPORTED_MODULE_4__components_UnreadNots_vue___default.a, Post: __WEBPACK_IMPORTED_MODULE_2__components_Post_vue___default.a },
+  store: __WEBPACK_IMPORTED_MODULE_5__store_js__["a" /* store */]
 });
 
 /***/ }),
@@ -48224,6 +48228,154 @@ module.exports = function(module) {
 
 module.exports = __webpack_require__(11);
 
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    mounted: function mounted() {},
+    data: function data() {
+        return {
+            disabled: true,
+            text: ''
+        };
+    },
+
+    methods: {
+        createPost: function createPost() {
+            var _this = this;
+
+            axios.post('/create/post', { text: this.text }).then(function (response) {
+                _this.text = '';
+                noty({
+                    type: 'success',
+                    layout: 'bottomLeft',
+                    text: 'Your post has been published!'
+                });
+            });
+        }
+    },
+    watch: {
+        text: function text() {
+            if (this.text.length > 0) this.disabled = false;else this.disabled = true;
+        }
+    }
+};
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(4)(
+  /* script */
+  __webpack_require__(50),
+  /* template */
+  __webpack_require__(52),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/pinchuk_a/Projects/social-network/resources/assets/js/components/Post.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Post.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-05c10042", Component.options)
+  } else {
+    hotAPI.reload("data-v-05c10042", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "feed-list"
+  }, [_c('div', {
+    staticClass: "feed"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.text),
+      expression: "text"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "",
+      "rows": "3"
+    },
+    domProps: {
+      "value": _vm._s(_vm.text)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.text = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "btn success",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.disabled
+    },
+    on: {
+      "click": _vm.createPost
+    }
+  }, [_vm._v("Submit")])]), _vm._v(" "), _c('div', {
+    staticClass: "feed"
+  }, [_vm._v("\n        You are logged in!Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n        Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "feed"
+  }, [_vm._v("\n        You are logged in!Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n        Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "feed"
+  }, [_vm._v("\n        You are logged in!Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n        Next up, let's review Redis' hash data type. Think of these as a Redis equivalent to PHP's associative array. When you need to associate a number of key-value pairs with a single key, this is the type you should reach for. Near the conclusion of this lesson, we'll also touch upon Laravel's Cache component, and how that fits in with our Redis review.\n    ")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-05c10042", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

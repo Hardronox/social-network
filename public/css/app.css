@@ -3677,11 +3677,14 @@ select[multiple].input-lg,
      list-style: none;
 }
 .feed-list{
-     padding: 15px;
-     border: 1px solid lightgray;
      width:40%;
      float:left;
-     background-color: white;
+}
+.feed{
+    margin-bottom: 3%;
+    padding: 15px;
+    border: 1px solid lightgray;
+    background-color: white;
 }
 .primary{
     background-color: #00d1b2;
@@ -3694,6 +3697,8 @@ select[multiple].input-lg,
     color: #fff;
 }
 .success{
+    margin-left: 87%;
+    margin-top: 2%;
     background-color: #23d160;
     border-color: transparent;
     color: #fff;

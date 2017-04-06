@@ -43,7 +43,7 @@
 
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
-                        <unread></unread>
+                        <Unread></Unread>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
